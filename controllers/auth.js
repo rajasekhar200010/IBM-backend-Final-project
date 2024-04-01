@@ -6,6 +6,7 @@ import { createToken } from "../utils/tokens.js"
 export async function register(req, res) {
     try {
         const { username, password } = req.body;
+        console.log(username)
 
         // check if the user name found
         const foundUser = await user.findOne({ where: { username } });
@@ -21,6 +22,9 @@ export async function register(req, res) {
 
         res.json({ message: "User registered successfully!" });
     } catch (error) {
+
+        console.log(error)
+
 
         res.status(500).json({ message: "Internal Server Error!!" });
 
